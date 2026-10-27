@@ -1,4 +1,4 @@
-# Практична робота №2
+# Практична робота №6
 
 **Виконав:** студент групи 4СОМ Кланцатий Костянтин (Варіант №3)
 
@@ -175,15 +175,50 @@ int main() {
 
 **Код:**
 ```cpp
+#include <iostream>
+#include <queue>
+#include <string>
 
+using namespace std;
+
+struct Product {
+    string name;
+    double price;
+};
+
+int main() {
+    queue<Product> products;
+
+    products.push({"Notebook", 150.0});
+    products.push({"Headphones", 450.0});
+    products.push({"Mousepad", 180.5});
+    products.push({"USB Cable", 99.9});
+    products.push({"Keyboard", 850.0});
+
+    cout << "Товари, ціна яких менша за 200 грн:\n";
+
+    while (!products.empty()) {
+        Product p = products.front();
+        products.pop();
+
+        if (p.price < 200.0) {
+            cout << p.name << " — " << p.price << " грн\n";
+        }
+    }
+
+    return 0;
+}
 ```
 
 **Результат:**
 ```text
-
+Товари, ціна яких менша за 200 грн:
+Notebook — 150 грн
+Mousepad — 180.5 грн
+USB Cable — 99.9 грн
 ```
 
-photo - 
+<img width="1895" height="895" alt="image" src="https://github.com/user-attachments/assets/28796203-f38a-4c9f-bcf4-7cf13922e8c2" />
 
 ---
 
@@ -191,16 +226,58 @@ photo -
 
 **Код:**
 ```cpp
+#include <iostream>
+#include <queue>
+#include <string>
+using namespace std;
 
+struct Passenger {
+    string ticketNumber;
+};
+
+int main() {
+    queue<Passenger> q;
+
+    q.push({"TK-101"});
+    q.push({"TK-102"});
+    q.push({"TK-103"});
+    q.push({"TK-104"});
+    q.push({"TK-105"});
+    q.push({"TK-106"});
+
+    int boarded = 0;
+    while (!q.empty() && boarded < 3) {
+        cout << "Посадка пасажира з квитком: " << q.front().ticketNumber << endl;
+        q.pop();
+        boarded++;
+    }
+
+    cout << "\nПасажири, які чекають у черзі:" << endl;
+    while (!q.empty()) {
+        cout << "Квиток: " << q.front().ticketNumber << endl;
+        q.pop();
+    }
+
+    cout << "\nРоботу завершено." << endl;
+
+    return 0;
+}
 ```
 
 **Результат:**
 ```text
+Посадка пасажира з квитком: TK-101
+Посадка пасажира з квитком: TK-102
+Посадка пасажира з квитком: TK-103
 
+Пасажири, які чекають у черзі:
+Квиток: TK-104
+Квиток: TK-105
+Квиток: TK-106
+
+Роботу завершено.
 ```
 
-photo - 
+<img width="1892" height="893" alt="image" src="https://github.com/user-attachments/assets/736d5956-43eb-4f7d-b8d4-323f3d3b5655" />
 
 ---
-
-## Висновки
