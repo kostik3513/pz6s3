@@ -87,15 +87,44 @@ int main() {
 
 **Код:**
 ```cpp
+#include <iostream>
+#include <queue>
+using namespace std;
 
+int main() {
+    queue<int> source;
+    queue<int> result;
+
+    for (int i = 1; i <= 80; i++) {
+        source.push(i);
+    }
+
+    while (!source.empty()) {
+        int x = source.front();
+        source.pop();
+
+        if (x > 25 && x % 2 != 0) {
+            result.push(x);
+        }
+    }
+
+    cout << "Непарні числа, більші за 25: ";
+    while (!result.empty()) {
+        cout << result.front() << " ";
+        result.pop();
+    }
+    cout << endl;
+
+    return 0;
+}
 ```
 
 **Результат:**
 ```text
-
+Непарні числа, більші за 25: 27 29 31 33 35 37 39 41 43 45 47 49 51 53 55 57 59 61 63 65 67 69 71 73 75 77 79
 ```
 
-photo - 
+<img width="1902" height="757" alt="image" src="https://github.com/user-attachments/assets/ae56d42e-fa59-4487-8bab-3ce6b0a8d2da" />
 
 ---
 
@@ -103,15 +132,42 @@ photo -
 
 **Код:**
 ```cpp
+#include <iostream>
+#include <queue>
+#include <string>
+using namespace std;
 
+int main() {
+    queue<char> letters;
+    string word = "ProgRAMming";
+
+    for (int i = 0; i < word.length(); i++) {
+        letters.push(word[i]);
+    }
+
+    int upperCount = 0;
+
+    while (!letters.empty()) {
+        char ch = letters.front();
+        letters.pop();
+
+        if (ch >= 'A' && ch <= 'Z') {
+            upperCount++;
+        }
+    }
+
+    cout << "Кількість великих літер у черзі: " << upperCount << endl;
+
+    return 0;
+}
 ```
 
 **Результат:**
 ```text
-
+Кількість великих літер у черзі: 4
 ```
 
-photo - 
+<img width="1896" height="735" alt="image" src="https://github.com/user-attachments/assets/2885ad55-af4a-443e-b7ec-e284e7f4dfe3" />
 
 ---
 
